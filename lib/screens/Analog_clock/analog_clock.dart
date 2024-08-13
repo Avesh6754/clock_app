@@ -20,7 +20,7 @@ class _AnalogClockState extends State<AnalogClock> {
     super.initState();
     Timer.periodic(
       Duration(seconds: 1),
-          (timer) {
+      (timer) {
         setState(() {
           future = DateTime.now();
         });
@@ -31,84 +31,160 @@ class _AnalogClockState extends State<AnalogClock> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('${background(future)}'), fit: BoxFit.cover),
-          ),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Transform.scale(scale:2,
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('${background(future)}'), fit: BoxFit.cover),
+        ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              height: 200,
+              width: 200,
+              decoration:
+                  BoxDecoration(shape: BoxShape.circle, color: Colors.black38),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Transform.rotate(
+              angle: (future.minute * 6) * pi / 180,
+              child: VerticalDivider(
+                indent: 315,
+                endIndent: 355,
+                color: Colors.white,
+                thickness: 3,
+              ),
+            ),
+            Transform.rotate(
+              angle: (future.hour * 30 + future.minute * 0.5) * pi / 180,
+              child: VerticalDivider(
+                indent: 325,
+                endIndent: 355,
+                color: Colors.white,
+                thickness: 4,
+              ),
+            ),
+            ...List.generate(
+              60,
+              (index) => Transform.rotate(
+                angle: (index * 30) * pi / 180,
+                child: VerticalDivider(
+                  thickness: 1,
+                  color: Colors.white,
+                  endIndent: 278,
+                  indent: 462,
+                ),
+              ),
+            ),
+            Transform.rotate(
+              angle: (future.second * 6) * pi / 180,
+              child: VerticalDivider(
+                indent: 300,
+                endIndent: 355,
+                color: Colors.red,
+                thickness: 2,
+              ),
+            ),
+            const CircleAvatar(
+              radius: 5,
+              backgroundColor: Colors.black,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: Align(
+                alignment: Alignment.topCenter,
                 child: Container(
-                  height: 140,
-                  width: 140,
-
-                  child: CircularProgressIndicator(
-                    strokeAlign: 1,
-                    color: Colors.white,
-                    value: future.second/60,
-                  ),
-                ),
+                    height: 120,
+                    margin: EdgeInsets.only(left: 40, right: 40, top: 50),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.black26,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 70,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10)
+                                    ,color: Colors.white12
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${(future.hour % 12 == 0) ? 12.toString().padLeft(2, '0') : (future.hour % 12).toString().padLeft(2, '0')}',
+                                style: TextStyle(color: Colors.white, fontSize: 50),
+                              ),
+                            ),
+                            Container(
+                              height: 60,
+                              width: 70,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10)
+                                  ,color: Colors.white12
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${future.minute.toString().padLeft(2, '0')}',
+                                style: TextStyle(color: Colors.white, fontSize: 50),
+                              ),
+                            ),
+                            Container(
+                              height: 60,
+                              width: 70,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10)
+                                  ,color: Colors.white12
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${future.second.toString().padLeft(2, '0')}',
+                                style: TextStyle(color: Colors.white, fontSize: 50),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 30),
+                              height: 30,
+                              width: 35,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10)
+                                  ,color: Colors.white12
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${(future.hour < 12) ? 'AM' : "PM"}',
+                                style: TextStyle(color: Colors.white, fontSize: 20),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                                '${days[future.weekday - 1]} ${future.day} ${month[future.month - 1]}',
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.white,
+                                ))
+                          ],
+                        ),
+                      ],
+                    )),
               ),
-              ...List.generate(
-                60,
-                    (index) => Transform.rotate(
-                  angle: (index * 6) * pi / 180,
-                  child: VerticalDivider(
-                    color: (index%5==0)?Colors.black:Colors.white,
-                    thickness:(index%5==0)?4:2,
-                    endIndent:(index%5==0)? 480:490,
-                    indent:253,
-                  ),
-                ),
-              ),
-              const CircleAvatar(
-                radius: 6,
-                backgroundColor: Colors.black26,
-              ),
-              Transform.rotate(
-                angle: ((future.hour * 30) + future.minute * 0.5) * pi / 180,
-                child: const VerticalDivider(
-                  thickness: 4,
-                  color: Colors.black,
-                  endIndent: 360,
-                  indent: 320,
-                ),
-              ),
-              Transform.rotate(
-                angle: (future.minute * 6) * pi / 180,
-                child: const VerticalDivider(
-                  thickness: 3,
-                  color: Colors.black,
-                  endIndent: 360,
-                  indent: 290,
-                ),
-              ),
-              Transform.rotate(
-                angle: (future.second * 6) * pi / 180,
-                child: const VerticalDivider(
-                  thickness: 2,
-                  color: Colors.red,
-                  endIndent: 360,
-                  indent: 280,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Align(alignment: Alignment.bottomCenter,
-                  child: OutlinedButton(style: ButtonStyle(side:WidgetStateProperty.all(BorderSide(color: Colors.grey,width: 2))),onPressed: () {
-                    Navigator.of(context).pushNamed('/strap');
-                  }, child:Text('Next',style: TextStyle(fontSize: 30,color: Colors.black54,fontWeight: FontWeight.w600
-                    ,),)),
-                ),
-              ),
-
-            ],
-          ),
-        )
+            )
+          ],
+        ),
+      ),
     );
   }
 }

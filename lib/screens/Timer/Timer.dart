@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:math';
 import 'package:animated_icon/animated_icon.dart';
@@ -21,26 +20,26 @@ class _TimerpageState extends State<Timerpage> {
   int currentsecond = 0;
   bool isplay = true;
 
-  var secondtimer=59;
-  var minutestimer=59;
-  var hourtimer=1;
-  bool stoptimer=false;
+  var secondtimer = 0;
+  var minutestimer = 0;
+  var hourtimer = 0;
+  bool stoptimer = false;
 
   void strapwatchlogic() {
     Timer.periodic(
       Duration(seconds: 1),
-          (timer) {
+      (timer) {
         setState(() {
-          if (currentsecond != 0 || currentminutes != 0 || currenthour != 0) {
+          if (secondtimer != 0 || minutestimer != 0 || hourtimer != 0) {
             if (stoptimer) {
-              currentsecond--;
-              if (currentsecond < 0) {
-                currentminutes--;
-                currentsecond = 59;
-                if (currentminutes < 0) {
-                  currenthour--;
-                  currentminutes = 59;
-                  currentsecond = 59;
+              secondtimer--;
+              if (secondtimer < 0) {
+                minutestimer--;
+                secondtimer = 59;
+                if (minutestimer < 0) {
+                  hourtimer--;
+                  minutestimer = 59;
+                  secondtimer = 59;
                 }
               }
             }
@@ -63,7 +62,6 @@ class _TimerpageState extends State<Timerpage> {
       backgroundColor: Colors.black,
       body: Column(
         children: [
-
           Stack(
             children: [
               Container(
@@ -83,9 +81,23 @@ class _TimerpageState extends State<Timerpage> {
                 ),
                 child: Stack(
                   children: [
+                    Center(
+                      child: Transform.scale(
+                        scale: 2,
+                        child: Container(
+                          height: 100,
+                          width: 100,
+                          child: CircularProgressIndicator(
+                            value: secondtimer / 60,
+                            valueColor:
+                                AlwaysStoppedAnimation(Colors.tealAccent),
+                          ),
+                        ),
+                      ),
+                    ),
                     ...List.generate(
                       60,
-                          (index) => Center(
+                      (index) => Center(
                         child: Transform.rotate(
                           angle: index * 6 * pi / 180,
                           child: const VerticalDivider(
@@ -99,9 +111,9 @@ class _TimerpageState extends State<Timerpage> {
                     ),
                     Center(
                       child: Text(
-                        '${currenthour.toString().padLeft(2, "0")} : ${currentminutes.toString().padLeft(2, "0")} : ${currentsecond.toString().padLeft(2, "0")}',
+                        '${hourtimer.toString().padLeft(2, "0")} : ${minutestimer.toString().padLeft(2, "0")} : ${secondtimer.toString().padLeft(2, "0")}',
                         style: const TextStyle(
-                          color: Colors.teal,
+                          color: Colors.tealAccent,
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
                         ),
@@ -109,12 +121,15 @@ class _TimerpageState extends State<Timerpage> {
                     ),
                     Center(
                       child: SizedBox(
-                        height: 275,
-                        width: 275,
-                        child: CircularProgressIndicator(
-                          color: Colors.teal,
-                          strokeWidth: 6,
-                          value: second / 60,
+                        height: 129,
+                        width: 129,
+                        child: Transform.scale(
+                          scale: 2,
+                          child: CircularProgressIndicator(
+                            color: Colors.tealAccent,
+
+                            value: second / 60,
+                          ),
                         ),
                       ),
                     ),
@@ -123,101 +138,37 @@ class _TimerpageState extends State<Timerpage> {
               ),
             ],
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text("Hour",style: TextStyle(fontSize: 20,color: Colors.white),),
-              Text("Minutes",style: TextStyle(fontSize: 20,color: Colors.white),),
-              Text("Second ",style: TextStyle(fontSize: 20,color: Colors.white),),
-            ],
-          ),
-          Container(
-
-            margin: EdgeInsets.all(30),
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.white,width: 0.5),
-                borderRadius: BorderRadius.circular(15)
-            ),
+          Spacer(),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                NumberPicker(
-                  axis: Axis.vertical,
-                  itemHeight: 45,
-                  itemWidth: 45.0,
-                  step: 1,
-                  selectedTextStyle: const TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  textStyle: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 25,
-                  ),
-                  itemCount: 3,
-                  value: currenthour,
-                  minValue: 0,
-                  maxValue: 99,
-                  onChanged: (v) {
-                    setState(() {
-                      currenthour = v;
-                    });
-                  },
+                Text(
+                  "Hour",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                NumberPicker(
-                  axis: Axis.vertical,
-                  itemHeight: 45,
-                  itemWidth: 45.0,
-                  step: 1,
-                  selectedTextStyle: const TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  textStyle: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 25,
-                  ),
-                  itemCount: 3,
-                  value: currentminutes,
-                  minValue: 0,
-                  maxValue: 59,
-                  onChanged: (v) {
-                    setState(() {
-                      currentminutes = v;
-                    });
-                  },
+                Text(
+                  "Minutes",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                NumberPicker(
-                  axis: Axis.vertical,
-                  itemHeight: 45,
-                  itemWidth: 45.0,
-                  step: 1,
-                  selectedTextStyle: const TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  textStyle: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 25,
-                  ),
-                  itemCount: 3,
-                  value: currentsecond,
-                  minValue: 0,
-                  maxValue: 59,
-                  onChanged: (v) {
-                    setState(() {
-                      currentsecond = v;
-                    });
-                  },
+                Text(
+                  "Second ",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-
               ],
             ),
           ),
-          Spacer(),
+          Container(
+            height: 130,
+            width: double.infinity,
+            margin: EdgeInsets.only(left: 20,right: 20,bottom: 20),
+            decoration: BoxDecoration(
+              border: Border.all(width: 0.8, color: Colors.white),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: timerudf(),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -225,36 +176,40 @@ class _TimerpageState extends State<Timerpage> {
                 onTap: () {
                   setState(() {
                     isplay = !isplay;
-                    (isplay==false) ? stoptimer=true : stoptimer=false;
+                    (isplay == false) ? stoptimer = true : stoptimer = false;
                   });
                 },
                 child: Container(
-                    height: 60,
-                    width: 60,
+                    height: 70,
+                    width: 70,
                     decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.tealAccent
-                    ),
-                    child:Icon((isplay == false) ? Icons.play_arrow : Icons.pause,size: 35,)
-                ),
+                        shape: BoxShape.circle, color: Colors.tealAccent),
+                    child: Icon(
+                      (isplay == false) ? Icons.play_arrow : Icons.pause,
+                      size: 40,
+                    )),
               ),
               GestureDetector(
                 onTap: () {
-                  setState(() {currentsecond=0;
-                  currentminutes=0;
-                  currenthour=0;
-                  stoptimer=false;
+                  setState(() {
+                    secondtimer = 0;
+                    minutestimer = 0;
+                    hourtimer = 0;
+                    stoptimer = false;
                   });
                 },
                 child: Container(
-                    height: 60,
-                    width: 60,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.tealAccent
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 0.5, color: Colors.white54),
                     ),
-                    child:Icon(Icons.restart_alt,size: 35,)
-                ),
+                    child: Icon(
+                      Icons.restart_alt,
+                      size: 25,
+                      color: Colors.white,
+                    )),
               )
             ],
           ),
@@ -264,4 +219,68 @@ class _TimerpageState extends State<Timerpage> {
     );
   }
 
+  Row timerudf() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: 100,
+          child: ListWheelScrollView(
+              onSelectedItemChanged: (value) {
+                hourtimer = value;
+              },
+              itemExtent: 61,
+              diameterRatio: 0.9,
+              perspective: 0.01,
+              children: [
+                ...List.generate(
+                    100,
+                    (index) => Text(
+                          '$index',
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 35),
+                        ))
+              ]),
+        ),
+        SizedBox(
+          width: 100,
+          child: ListWheelScrollView(
+              onSelectedItemChanged: (value) {
+                minutestimer = value;
+              },
+              itemExtent: 61,
+              diameterRatio: 0.9,
+              perspective: 0.01,
+              children: [
+                ...List.generate(
+                    60,
+                    (index) => Text(
+                          '$index',
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 35),
+                        ))
+              ]),
+        ),
+        SizedBox(
+          width: 100,
+          child: ListWheelScrollView(
+              onSelectedItemChanged: (value) {
+                secondtimer = value;
+              },
+              itemExtent: 61,
+              diameterRatio: 0.9,
+              perspective: 0.01,
+              children: [
+                ...List.generate(
+                    60,
+                    (index) => Text(
+                          '$index',
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 35),
+                        ))
+              ]),
+        ),
+      ],
+    );
+  }
 }

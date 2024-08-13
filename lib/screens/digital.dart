@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _DigitalClockState extends State<DigitalClock> {
     super.initState();
     Timer.periodic(
       Duration(seconds: 1),
-          (timer) {
+      (timer) {
         setState(() {
           future = DateTime.now();
         });
@@ -38,43 +39,48 @@ class _DigitalClockState extends State<DigitalClock> {
         child: Column(
           children: [
             Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
+            Column(
               children: [
                 Text(
-                  "${(future.hour % 12 == 0) ? 12.toString().padLeft(2, '0') : (future.hour % 12).toString().padLeft(2, '0')}:${future.minute.toString().padLeft(2, '0')}",
+                  "${(future.hour % 12 == 0) ? 12.toString().padLeft(2, '0') : (future.hour % 12).toString().padLeft(2, '0')}",
                   style: const TextStyle(
-                      fontSize: 80,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                    fontSize: 60,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 30,
+                    ),
+                    Text(
+                      "${future.minute.toString().padLeft(2, '0')}",
+                      style: const TextStyle(
+                        fontSize: 60,
+                        height: 0.5,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
                       ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  '${future.second.toString().padLeft(2, '0')}',
-                  style: const TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                      height: -2,
-                      fontFamily: 'Digital'),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  '${(future.hour < 12) ? 'AM' : "PM"}',
-                  style: const TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                      height: -2,
-                      fontFamily: 'Digital'),
+                    ),
+                    Transform.rotate(
+                      angle: pi / 2,
+                      child: Text(
+                        '${(future.hour < 12) ? 'AM' : "PM"}',
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
+            ),
+            SizedBox(
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -82,24 +88,19 @@ class _DigitalClockState extends State<DigitalClock> {
                 Text(
                     '${days[future.weekday - 1]} ${future.day} ${month[future.month - 1]}',
                     style: const TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
-                        fontFamily: 'Digital'))
+                      fontSize: 25,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ))
               ],
             ),
-            const Spacer(
-              flex : 4,
+            Spacer(
+              flex: 5,
             ),
-            Spacer(flex: 2,),
-            OutlinedButton(style: ButtonStyle(side:WidgetStateProperty.all(const BorderSide(color: Colors.grey,width: 2))),onPressed: () {
-              Navigator.of(context).pushNamed('/analog');
-            }, child:const Text('Next',style: TextStyle(fontSize: 30,color: Colors.black54,fontWeight: FontWeight.w600
-              ,),)),
-            Spacer(),
           ],
         ),
       ),
+
     );
   }
 }

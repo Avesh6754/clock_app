@@ -1,6 +1,7 @@
 
 import 'package:clock_app_task/screens/Analog_clock/analog_clock.dart';
 import 'package:clock_app_task/screens/Timer/Timer.dart';
+import 'package:clock_app_task/screens/controller/bottom.dart';
 // import 'package:clock_app_task/screens/Timer/timer.dart';
 import 'package:clock_app_task/screens/digital.dart';
 
@@ -21,10 +22,10 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/clock':(context)=>DigitalClock(),
+        '/':(context)=>Bottom(),
         '/analog':(context)=>AnalogClock(),
         '/strap':(context)=>StrapWatch(),
-        '/':(context)=>Timerpage(),
+        '/timer':(context)=>Timerpage(),
 
       },
     );
