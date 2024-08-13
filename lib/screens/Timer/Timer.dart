@@ -21,6 +21,11 @@ class _TimerpageState extends State<Timerpage> {
   int currentsecond = 0;
   bool isplay = true;
 
+  var secondtimer=59;
+  var minutestimer=59;
+  var hourtimer=1;
+  bool stoptimer=false;
+
   void strapwatchlogic() {
     Timer.periodic(
       Duration(seconds: 1),
@@ -65,7 +70,7 @@ class _TimerpageState extends State<Timerpage> {
                 margin: EdgeInsets.all(70),
                 height: 300,
                 width: 300,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF0A0A0A),
                   shape: BoxShape.circle,
                   boxShadow: [
@@ -83,7 +88,7 @@ class _TimerpageState extends State<Timerpage> {
                           (index) => Center(
                         child: Transform.rotate(
                           angle: index * 6 * pi / 180,
-                          child: VerticalDivider(
+                          child: const VerticalDivider(
                             color: Colors.white,
                             thickness: 2,
                             indent: 285,
@@ -95,7 +100,7 @@ class _TimerpageState extends State<Timerpage> {
                     Center(
                       child: Text(
                         '${currenthour.toString().padLeft(2, "0")} : ${currentminutes.toString().padLeft(2, "0")} : ${currentsecond.toString().padLeft(2, "0")}',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.teal,
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -118,7 +123,7 @@ class _TimerpageState extends State<Timerpage> {
               ),
             ],
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text("Hour",style: TextStyle(fontSize: 20,color: Colors.white),),
@@ -220,13 +225,13 @@ class _TimerpageState extends State<Timerpage> {
                 onTap: () {
                   setState(() {
                     isplay = !isplay;
-                    stoptimer = true;
+                    (isplay==false) ? stoptimer=true : stoptimer=false;
                   });
                 },
                 child: Container(
                     height: 60,
                     width: 60,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.tealAccent
                     ),
@@ -244,7 +249,7 @@ class _TimerpageState extends State<Timerpage> {
                 child: Container(
                     height: 60,
                     width: 60,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.tealAccent
                     ),
@@ -252,7 +257,8 @@ class _TimerpageState extends State<Timerpage> {
                 ),
               )
             ],
-          )
+          ),
+          Spacer(),
         ],
       ),
     );

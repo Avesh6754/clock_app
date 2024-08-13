@@ -92,9 +92,9 @@ class _DigitalClockState extends State<DigitalClock> {
               flex : 4,
             ),
             Spacer(flex: 2,),
-            OutlinedButton(style: ButtonStyle(side:WidgetStateProperty.all(BorderSide(color: Colors.grey,width: 2))),onPressed: () {
+            OutlinedButton(style: ButtonStyle(side:WidgetStateProperty.all(const BorderSide(color: Colors.grey,width: 2))),onPressed: () {
               Navigator.of(context).pushNamed('/analog');
-            }, child:Text('Next',style: TextStyle(fontSize: 30,color: Colors.black54,fontWeight: FontWeight.w600
+            }, child:const Text('Next',style: TextStyle(fontSize: 30,color: Colors.black54,fontWeight: FontWeight.w600
               ,),)),
             Spacer(),
           ],

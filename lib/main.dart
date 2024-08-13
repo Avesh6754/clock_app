@@ -21,10 +21,10 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/':(context)=>DigitalClock(),
+        '/clock':(context)=>DigitalClock(),
         '/analog':(context)=>AnalogClock(),
         '/strap':(context)=>StrapWatch(),
-        '/timer':(context)=>Timerpage(),
+        '/':(context)=>Timerpage(),
 
       },
     );
