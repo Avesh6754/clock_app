@@ -118,7 +118,7 @@ String background(DateTime future) {
   } else if (hour >= 12 && hour < 16) {
     return 'assets/image/4.jpg';
   } else if (hour >= 16 && hour < 19) {
-    return 'assets/image/2.jpg';
+    return 'assets/image/2.jfif';
   } else {
     return 'assets/image/5.jpg';
   }

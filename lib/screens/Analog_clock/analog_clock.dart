@@ -53,16 +53,16 @@ class _AnalogClockState extends State<AnalogClock> {
             Transform.rotate(
               angle: (future.minute * 6) * pi / 180,
               child: VerticalDivider(
-                indent: 315,
+                indent: 295,
                 endIndent: 355,
                 color: Colors.white,
-                thickness: 3,
+                thickness: 2,
               ),
             ),
             Transform.rotate(
               angle: (future.hour * 30 + future.minute * 0.5) * pi / 180,
               child: VerticalDivider(
-                indent: 325,
+                indent: 315,
                 endIndent: 355,
                 color: Colors.white,
                 thickness: 4,
@@ -75,7 +75,7 @@ class _AnalogClockState extends State<AnalogClock> {
                 child: VerticalDivider(
                   thickness: 1,
                   color: Colors.white,
-                  endIndent: 278,
+                  endIndent: 272,
                   indent: 462,
                 ),
               ),
@@ -83,7 +83,7 @@ class _AnalogClockState extends State<AnalogClock> {
             Transform.rotate(
               angle: (future.second * 6) * pi / 180,
               child: VerticalDivider(
-                indent: 300,
+                indent: 285,
                 endIndent: 355,
                 color: Colors.red,
                 thickness: 2,
@@ -120,7 +120,7 @@ class _AnalogClockState extends State<AnalogClock> {
                               alignment: Alignment.center,
                               child: Text(
                                 '${(future.hour % 12 == 0) ? 12.toString().padLeft(2, '0') : (future.hour % 12).toString().padLeft(2, '0')}',
-                                style: TextStyle(color: Colors.white, fontSize: 50),
+                                style: TextStyle(color: Colors.white, fontSize: 40),
                               ),
                             ),
                             Container(
@@ -133,7 +133,7 @@ class _AnalogClockState extends State<AnalogClock> {
                               alignment: Alignment.center,
                               child: Text(
                                 '${future.minute.toString().padLeft(2, '0')}',
-                                style: TextStyle(color: Colors.white, fontSize: 50),
+                                style: TextStyle(color: Colors.white, fontSize: 40),
                               ),
                             ),
                             Container(
@@ -146,7 +146,7 @@ class _AnalogClockState extends State<AnalogClock> {
                               alignment: Alignment.center,
                               child: Text(
                                 '${future.second.toString().padLeft(2, '0')}',
-                                style: TextStyle(color: Colors.white, fontSize: 50),
+                                style: TextStyle(color: Colors.white, fontSize: 40),
                               ),
                             ),
                             Container(
