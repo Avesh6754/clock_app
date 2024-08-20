@@ -1,4 +1,4 @@
-![7am](https://github.com/user-attachments/assets/fb20f4f7-8e10-4c6a-9c92-70b3403baaf9)# clock_app
+
 
 A new Flutter project.
 
@@ -7,22 +7,25 @@ A new Flutter project.
 <h1 align="center">Digital Clock</h1>
 <p>
  
-  <img src="https://github.com/user-attachments/assets/1fe80889-896b-4274-9b0a-23d4fd99d544" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/52ee8209-50f8-4e09-84b5-aa8fa57f7faf" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/56baf5f7-e8a1-4899-84a5-594a17b65c88" width="22%" Height="35%">
 
-  <img src="https://github.com/user-attachments/assets/ef7f9037-2994-4753-9ea4-733b838bc8cd" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/bff9961d-3199-46d4-ab65-94e923a688e6" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/6a3960b8-a7f4-4302-b275-35d145afdb3a" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/9713f346-17e0-4ceb-bbc3-3fb663203617" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/37a4ed56-4214-407d-9321-36c252f83ea7" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/774b6d5d-417f-4a6c-a4de-c9c51fb36f35" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/78c87201-4da1-40b0-b00d-95d99e7430bf" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/b6b31653-8798-4ffe-9300-3e2c47c641a9" width="22%" Height="35%">
-  <img src="" width="22%" Height="35%">
-  <img src="" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/48b50afb-93c3-4d65-8ab5-89b9ae036bf1" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/95812af5-1ece-4af0-a9e7-7488c9c83c66" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/5aec9a3f-cb86-49d2-bd17-2e446beff542" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/1e7097f9-e1fe-4deb-940a-ee49c7e65412" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/8c99a558-b81d-4062-8f7d-ccf9f4bbb32f" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/5f69b186-5f6e-4f6c-8594-eb41041204ce" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/dcf7336c-7823-4489-a35d-757dfcaba49a" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/63d4050b-8343-4a04-aa2b-296e191315fb" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/5ff31fda-a59b-4f74-8c50-185ae6c13f5f" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/926a4e7f-dac6-4d4e-a33c-6f56b2f1a7e0" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/1ac538c1-9cd4-4217-a042-6b7aeaf07673" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/13d57093-612f-4fab-a7dc-91722b3f022f" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/780566ba-b35f-4f6e-ba9a-9b569cac14de" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/94d75b2a-27b7-4f56-9142-afefed225380" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/e6d0c886-0d3e-4235-a21a-1b171e7cb488" width="22%" Height="35%">
 
-  <img src="" width="22%" Height="35%">
-  <img src="" width="22%" Height="35%">
-  <img src="" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/90131451-7652-46ba-bfef-ce4bdf675cee" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/ac54867d-4b6c-47cb-900c-15829bd13152" width="22%" Height="35%">
+  
   </p>
+
