@@ -2,7 +2,9 @@
 <h1 align="center">🔶Clock App🔶</h1>
 
 # Clock App Description
-This Clock App is built using Flutter and offers a complete set of time-related functionalities. It includes four main screens: Digital Clock, Analog Clock, Timer, and Stopwatch. The app also features dynamic backgrounds for the Digital and Analog Clock screens, which change according to the time of day to enhance the user experience.
+This Clock App is built using Flutter and offers a complete set of time-related functionalities.
+It includes four main screens: Digital Clock, Analog Clock, Timer, and Stopwatch. 
+The app also features dynamic backgrounds for the Digital and Analog Clock screens, which change according to the time of day to enhance the user experience.
 
 # Features
 ## Digital Clock
