@@ -76,7 +76,7 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
   <img src="https://github.com/user-attachments/assets/8c99a558-b81d-4062-8f7d-ccf9f4bbb32f" width="22%" Height="35%">
   <img src="https://github.com/user-attachments/assets/5f69b186-5f6e-4f6c-8594-eb41041204ce" width="22%" Height="35%">
   <img src="https://github.com/user-attachments/assets/dcf7336c-7823-4489-a35d-757dfcaba49a" width="22%" Height="35%">
-  <img src="https://github.com/user-attachments/assets/63d4050b-8343-4a04-aa2b-296e191315fb" width="22%" Height="35%">
+  <img src="" width="22%" Height="35%">
   <img src="https://github.com/user-attachments/assets/5ff31fda-a59b-4f74-8c50-185ae6c13f5f" width="22%" Height="35%">
   <img src="https://github.com/user-attachments/assets/926a4e7f-dac6-4d4e-a33c-6f56b2f1a7e0" width="22%" Height="35%">
   <img src="https://github.com/user-attachments/assets/1ac538c1-9cd4-4217-a042-6b7aeaf07673" width="22%" Height="35%">
