@@ -1,9 +1,4 @@
 
-
-A new Flutter project.
-
-
-
 <h1 align="center">🔶Clock App🔶</h1>
 
 ## Clock App Description
