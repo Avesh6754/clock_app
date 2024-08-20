@@ -20,7 +20,7 @@ class _AnalogClockState extends State<AnalogClock> {
     super.initState();
     Timer.periodic(
       Duration(seconds: 1),
-      (timer) {
+          (timer) {
         setState(() {
           future = DateTime.now();
         });
@@ -35,7 +35,9 @@ class _AnalogClockState extends State<AnalogClock> {
         height: double.infinity,
         width: double.infinity,
         decoration: BoxDecoration(
+          color: Colors.black,
           image: DecorationImage(
+            opacity: 0.75,
               image: AssetImage('${background(future)}'), fit: BoxFit.cover),
         ),
         child: Stack(
@@ -45,16 +47,16 @@ class _AnalogClockState extends State<AnalogClock> {
               height: 200,
               width: 200,
               decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.black38),
+              const BoxDecoration(shape: BoxShape.circle, color: Colors.black38),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Transform.rotate(
               angle: (future.minute * 6) * pi / 180,
               child: VerticalDivider(
-                indent: 295,
-                endIndent: 355,
+                indent: 380,
+                endIndent: 440,
                 color: Colors.white,
                 thickness: 2,
               ),
@@ -62,29 +64,29 @@ class _AnalogClockState extends State<AnalogClock> {
             Transform.rotate(
               angle: (future.hour * 30 + future.minute * 0.5) * pi / 180,
               child: VerticalDivider(
-                indent: 315,
-                endIndent: 355,
+                indent: 395,
+                endIndent: 440,
                 color: Colors.white,
-                thickness: 4,
+                thickness: 3,
               ),
             ),
             ...List.generate(
               60,
-              (index) => Transform.rotate(
+                  (index) => Transform.rotate(
                 angle: (index * 30) * pi / 180,
                 child: VerticalDivider(
-                  thickness: 1,
+                  thickness: 2,
                   color: Colors.white,
-                  endIndent: 272,
-                  indent: 462,
+                  endIndent: 359,
+                  indent: 545,
                 ),
               ),
             ),
             Transform.rotate(
               angle: (future.second * 6) * pi / 180,
               child: VerticalDivider(
-                indent: 285,
-                endIndent: 355,
+                indent: 365,
+                endIndent: 440,
                 color: Colors.red,
                 thickness: 2,
               ),
@@ -114,8 +116,8 @@ class _AnalogClockState extends State<AnalogClock> {
                               height: 60,
                               width: 70,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10)
-                                    ,color: Colors.white12
+                                  borderRadius: BorderRadius.circular(10)
+                                  ,color: Colors.white12
                               ),
                               alignment: Alignment.center,
                               child: Text(
@@ -166,7 +168,7 @@ class _AnalogClockState extends State<AnalogClock> {
                           ],
                         ),
                         Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(

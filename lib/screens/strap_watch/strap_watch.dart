@@ -55,82 +55,89 @@ class _StrapWatchState extends State<StrapWatch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Container(
-        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/image/9.jpg'),fit: BoxFit.cover)),
-        child:
-            Column(
+        backgroundColor: Colors.black,
+        body: Container(
+          decoration: BoxDecoration(
+              color: Colors.black,
+              image: DecorationImage(
+                  opacity: 0.6,
+                  image: AssetImage('assets/image/9.jpg'),
+                  fit: BoxFit.cover)),
+          child: Column(children: [
+            Stack(
               children: [
-                Stack(
-                  children: [
-
-                    Container(
-                      margin: EdgeInsets.all(70),
-                      height: 300,
-                      width: 300,
-                      decoration: const BoxDecoration(
-                        color: Colors.white12,
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black38,
-                            blurRadius: 15,
-                            spreadRadius: 5,
-                          ),
-                        ],
+                Container(
+                  margin: EdgeInsets.all(70),
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    color: Colors.white12,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black38,
+                        blurRadius: 15,
+                        spreadRadius: 5,
                       ),
-                      child: Stack(
-                        children: [
-                          Center(
-                            child: Transform.scale(
-                              scale: 2,
-                              child: Container(
-                                height: 114,
-                                width: 114,
-                                child: CircularProgressIndicator(
-                                  value: second / 60,
-                                  valueColor:
-                                      AlwaysStoppedAnimation(Colors.tealAccent),
-                                ),
-                              ),
+                    ],
+                  ),
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Transform.scale(
+                          scale: 2,
+                          child: Container(
+                            height: 114,
+                            width: 114,
+                            child: CircularProgressIndicator(
+                              value: second / 60,
+                              valueColor:
+                                  AlwaysStoppedAnimation(Colors.tealAccent),
                             ),
                           ),
-                          ...List.generate(
-                            60,
-                            (index) => Center(
-                              child: Transform.rotate(
-                                angle: index * 6 * pi / 180,
-                                child: const VerticalDivider(
-                                  color: Colors.white,
-                                  thickness: 2,
-                                  indent: 285,
-                                  endIndent: 10,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Center(
-                            child: Text(
-                              '${hour.toString().padLeft(2, "0")} : ${minutes.toString().padLeft(2, "0")} : ${second.toString().padLeft(2, "0")}',
-                              style: const TextStyle(
-                                color: Colors.tealAccent,
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ],
+                      ...List.generate(
+                        60,
+                        (index) => Center(
+                          child: Transform.rotate(
+                            angle: index * 6 * pi / 180,
+                            child: const VerticalDivider(
+                              color: Colors.white,
+                              thickness: 2,
+                              indent: 285,
+                              endIndent: 10,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          '${hour.toString().padLeft(2, "0")} : ${minutes.toString().padLeft(2, "0")} : ${second.toString().padLeft(2, "0")}',
+                          style: const TextStyle(
+                            color: Colors.tealAccent,
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-
-
+              ],
+            ),
+            Spacer(
+              flex: 2,
+            ),
             Container(
                 height: 180,
-                width: 300,
+                width: 400,
                 margin: EdgeInsets.symmetric(vertical: 10),
-                decoration: BoxDecoration(),
+                decoration: BoxDecoration(
+                    color: Colors.white12,
+                    border: Border.all(width: 0.2, color: Colors.white),
+                    borderRadius: BorderRadius.circular(15)),
+                alignment: Alignment.topCenter,
                 child: ListView.builder(
                   itemCount: lab.length,
                   itemBuilder: (context, index) {
@@ -143,12 +150,18 @@ class _StrapWatchState extends State<StrapWatch> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Lab ${index + 1} ',
-                              style: TextStyle(fontSize: 20, color: Colors.white),
+                              'Lab ${index + 1} :',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.tealAccent,
+                                  fontWeight: FontWeight.w500),
                             ),
                             Text(
                               '${lab[index]}',
-                              style: TextStyle(fontSize: 20, color: Colors.white),
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.tealAccent,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
@@ -156,8 +169,8 @@ class _StrapWatchState extends State<StrapWatch> {
                     );
                   },
                 )),
-            SizedBox(
-              height: 10,
+            Spacer(
+              flex: 3,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -177,8 +190,8 @@ class _StrapWatchState extends State<StrapWatch> {
                           margin: EdgeInsets.only(bottom: 20),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border:
-                                  Border.all(width: 0.5, color: Colors.white54)),
+                              border: Border.all(
+                                  width: 0.5, color: Colors.white54)),
                           child: Icon(
                             Icons.flag,
                             color: Colors.white,
@@ -219,8 +232,8 @@ class _StrapWatchState extends State<StrapWatch> {
                           margin: EdgeInsets.only(bottom: 20),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border:
-                                  Border.all(width: 0.5, color: Colors.white54)),
+                              border: Border.all(
+                                  width: 0.5, color: Colors.white54)),
                           child: Icon(
                             Icons.restart_alt,
                             size: 25,
@@ -231,9 +244,8 @@ class _StrapWatchState extends State<StrapWatch> {
                 ),
               ],
             ),
-    ]
-      ),
-      )
-    );
+            Spacer()
+          ]),
+        ));
   }
 }

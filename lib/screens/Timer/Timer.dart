@@ -61,7 +61,7 @@ class _TimerpageState extends State<Timerpage> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
-        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/image/9.jpg'),fit: BoxFit.cover)),
+        decoration: BoxDecoration(color: Colors.black,image: DecorationImage(opacity: 0.6,image: AssetImage('assets/image/9.jpg'),fit: BoxFit.cover)),
         child: Column(
           children: [
             Stack(
@@ -161,6 +161,7 @@ class _TimerpageState extends State<Timerpage> {
                 ],
               ),
             ),
+
             Container(
               height: 130,
               width: double.infinity,
@@ -172,6 +173,7 @@ class _TimerpageState extends State<Timerpage> {
               ),
               child: timerudf(),
             ),
+            Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

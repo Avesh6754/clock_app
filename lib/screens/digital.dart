@@ -34,7 +34,10 @@ class _DigitalClockState extends State<DigitalClock> {
         height: double.infinity,
         width: double.infinity,
         decoration: BoxDecoration(
+          color: Colors.black,
+
             image: DecorationImage(
+              opacity: 0.75,
                 image: AssetImage('${background(future)}'), fit: BoxFit.cover)),
         child: Column(
           children: [
